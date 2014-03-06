@@ -3,15 +3,30 @@
         <title>Who's That Pokémon?</title>
         
         <!-- Bootstrap -->
-        <link rel="stylesheet" href="bootstrap-3.1.1-dist/css/bootstrap.min.css">
-        <script src="bootstrap-3.1.1-dist/3.1.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="assets/bootstrap-3.1.1-dist/css/bootstrap.min.css">
+        <script src="assets/bootstrap-3.1.1-dist/3.1.1/js/bootstrap.min.js"></script>
         
-        <link rel="stylesheet" href="style.css">
+        <!-- JQuery -->
+        <script src="assets/jquery-1.11.0.min.js"></script>
+        
+        <link rel="stylesheet" href="assets/style.css">
+        <script src="assets/pokemon.js" type="application/javascript"/>
 
     </head>
     <body>
+    <center>
         <p>Do you have what it takes to be the very best? Type the Pokémon's name to get points!</p>
         
-        <center><h1>Who's That Pokémon?</h1></center>
+        <h1>Who's That Pokémon?</h1>
+        
+        <div class="pkmn-image">
+            <img id="whos-this-pokemon" />
+        </div>
+    </center>
     </body>
+    <script type="application/javascript">
+        $( document ).ready(function() {
+            random-pokemon();
+        });            
+    </script>
 </html>
