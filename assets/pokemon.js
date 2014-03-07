@@ -9,3 +9,9 @@ function randomPokemon() {
 $( document ).ready(function() {
     randomPokemon();
 });
+
+$("#pkmn-name").keyup(function(event){
+    if(event.keyCode == 13){
+        // Do stuff when Enter key is pressed
+    }
+});
