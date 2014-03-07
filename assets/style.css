@@ -2,6 +2,7 @@ body {
 }
 
 .upper-half {
+    padding-top: 20px;
     background-color: red;
     color: white;
 }
@@ -12,7 +13,7 @@ body {
     background-color: white;
     text-align: center;
     margin: 1em 0;
-    border-radius:15px;
+    border-radius: 15px;
 }
 
 .helper {
@@ -41,4 +42,7 @@ body {
 
 .pkmn-name {
     color: black;
+    text-align: center;
+    font-size: 20pt;
+    border-radius: 5px;
 }
