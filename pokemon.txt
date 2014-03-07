@@ -716,4 +716,4 @@
 716|Xerneas|Fairy
 717|Yveltal|Dark|Flying
 718|Zygarde|Dragon|Ground
-719|Diancie|Rock|Fairy|
+719|Diancie|Rock|Fairy
