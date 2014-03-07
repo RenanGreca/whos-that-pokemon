@@ -1,6 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var path = require('path');
+var http = require('http');
 
 mongoose.connect('mongodb://localhost/whos-that-pokemon');
 var pokemon_schema = mongoose.Schema({
@@ -38,5 +39,8 @@ app.get('/', function(req, res) {
 /*app.get('/', function(request, response, next) {
   response.redirect(__dirname + '/index.html');
 });*/
-        
-app.listen(8080);
+
+http.createServer(function(req, res){
+    res.writeHead(200, {'content-type': 'text/html'});
+    //res.end('It works');
+}).listen(8080, '0.0.0.0');
