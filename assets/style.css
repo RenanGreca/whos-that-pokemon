@@ -2,7 +2,7 @@ body {
 }
 
 .upper-half {
-    padding-top: 20px;
+    padding-top: 5%;
     background-color: red;
     color: white;
 }
@@ -35,7 +35,7 @@ body {
 .footer {
     width:100%;
     position: fixed;
-    bottom: 10;
+    bottom: 2%;
     left: inherit;
     text-align: center;
 }
