@@ -1,3 +1,40 @@
 body {
-    background-color: #EEEEEE;
+}
+
+.upper-half {
+    background-color: red;
+    color: white;
+}
+
+.pkmn-image {
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    text-align: center;
+    margin: 1em 0;
+    border-radius:15px;
+}
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.pokemon {
+    max-width: 300px;
+    max-height: 300px;
+    vertical-align: middle;
+}
+
+.pkmn-name {
+    margin-bottom: 50px;
+}
+
+.footer {
+    width:100%;
+    position: fixed;
+    bottom: 10;
+    left: inherit;
+    text-align: center;
 }

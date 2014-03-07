@@ -1,32 +1,41 @@
 <html>
-    <head>
-        <title>Who's That Pokémon?</title>
-        
-        <!-- JQuery -->
-        <script src="assets/jquery-1.11.0.min.js"></script>
-        
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="assets/bootstrap-3.1.1-dist/css/bootstrap.min.css">
-        <script src="assets/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
-         
-        <link rel="stylesheet" href="assets/style.css">
-        <script src="assets/pokemon.js" type="application/javascript"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<head>
+    <title>Who's That Pokémon?</title>
 
-    </head>
-    <body>
-    <center>
+    <!-- JQuery -->
+    <script src="assets/jquery-1.11.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/bootstrap-3.1.1-dist/css/bootstrap.min.css">
+    <script src="assets/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/pokemon.js" type="application/javascript"></script>
+
+</head>
+<body>
+<center>
+    <div class="upper-half">
         <p>Do you have what it takes to be the very best? Type the Pokémon's name to get points!</p>
-        
+
         <h1>Who's That Pokémon?</h1>
-        
+
         <div class="pkmn-image">
-            <img id="whos-this-pokemon" />
+            <span class="helper"></span><img class="pokemon" id="whos-this-pokemon"/>
         </div>
-    </center>
-    </body>
-    <script type="application/javascript">
-        $( document ).ready(function() {
-            randomPokemon();
-        });            
-    </script>
+        <div class="form-group has-success has-feedback">
+            <input type="text" class="pkmn-name" id="pkmn-name" />
+        </div>
+    </div>
+    <div class="footer">
+        Created by Renan Greca in 2014<br />
+        Pokémon and all related content is owned by The Pokémon Company, Nintendo and GameFreak<br />
+        Artwork by Ken Sugimori<br />
+    </div>
+</center>
+</body>
+<script type="application/javascript">
+
+</script>
 </html>
