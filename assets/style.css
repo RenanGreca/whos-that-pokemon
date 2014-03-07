@@ -38,3 +38,7 @@ body {
     left: inherit;
     text-align: center;
 }
+
+.pkmn-name {
+    color: black;
+}
