@@ -2,7 +2,7 @@ body {
 }
 
 .upper-half {
-    padding-top: 2%;
+    padding-top: 1%;
     background-color: red;
     color: white;
 }
@@ -29,13 +29,13 @@ body {
 }
 
 .pkmn-name {
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 
 .footer {
     width:100%;
     position: fixed;
-    bottom: 2%;
+    bottom: 1%;
     left: inherit;
     text-align: center;
 }
@@ -45,4 +45,14 @@ body {
     text-align: center;
     font-size: 20pt;
     border-radius: 5px;
+}
+
+#result {
+    font-size: 20px;
+    min-height: 30px;
+    color: #00FF00;
+}
+
+#counter {
+    font-size: 50px;
 }

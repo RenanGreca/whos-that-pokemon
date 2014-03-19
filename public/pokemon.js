@@ -12,10 +12,53 @@ function randomPokemon() {
 
 $( document ).ready(function() {
     randomPokemon();
+    /*$("#pkmn-name").keypress(function(event){
+        if(event.which == 13){
+            // Do stuff when Enter key is pressed
+            $.ajax({
+                url: "/submit",
+                type: "POST",
+                data: {
+                    pokemonName: $('input[name="pkmn-name"]').val()
+                }
+            });
+
+        }
+    });*/
 });
 
-$("#pkmn-name").keyup(function(event){
-    if(event.keyCode == 13){
-        // Do stuff when Enter key is pressed
-    }
+$(function(){
+    $('#pkmn-name').on('keyup', function(e){
+        if(e.keyCode === 13) {
+            var parameters = { 
+                pokemonName: $('input[name="pkmn-name"]').val()
+            };
+            $.ajax({
+                url: "/submit",
+                dataType: "json",
+                type: "GET",
+                data: {
+                    pokemonName: $('input[name="pkmn-name"]').val(),
+                    dexNo: $("#whos-this-pokemon").attr('dexno')
+                }
+            }).done(function(data) {
+                    //alert('here');
+                    console.log(data.correct);
+                    if (data.correct) {
+                        $('#result').html("Correct answer! :D");
+                        $('#result').css("color", "#00FF00");
+                        var counter = Number($('#counter').text());
+                        $('#counter').text(String(counter + 1));
+                    } else {
+                        $('#result').html("Incorrect answer! :(");
+                        $('#result').css("color", "#000000");
+                    }
+                });
+            /*$.get('/submit', parameters, function(data) {
+                alert('here');
+                console.log(data);
+                $('#result').html(data);
+            });*/
+        };
+    });
 });

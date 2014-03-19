@@ -18,15 +18,18 @@
 <center>
     <div class="upper-half">
         <p>Do you have what it takes to be the very best? Type the Pokémon's name to get points!</p>
-
         <h1>Who's That Pokémon?</h1>
 
         <div class="pkmn-image">
             <span class="helper"></span><img class="pokemon" id="whos-this-pokemon"/>
         </div>
         <div class="has-success has-feedback">
-            <input type="text" class="pkmn-name" id="pkmn-name" autofocus/>
+            <input type="text" name="pkmn-name" class="pkmn-name" id="pkmn-name" autofocus autocomplete="off" />
         </div>
+        <div id="result"></div>
+    </div>
+    <div id="counter">
+      0
     </div>
     <div class="footer">
         <a href="https://github.com/RenanGreca/whos-that-pokemon">Created by Renan Greca in 2014</a><br />

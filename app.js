@@ -36,6 +36,7 @@ app.configure(function() {
 });
 
 app.get('/', function(req, res) {
+    console.log("rendering index");
     res.render('index');
 });
 
@@ -85,6 +86,40 @@ function addPokemon(pkmn) {
     pokemon.save();
     return pokemon;
 }
+
+/*var http = require('http'); 
+http.createServer(function (req, res) {
+    if (req.method == 'POST'){
+        var pokemonName = req.body.pokemonName;
+        console.log(pokemonName);
+    }
+});*/
+
+// When return is pressed, this is called.
+app.get('/submit', function(req, res) {
+    //pokemonName = req.query.pokemonName;
+    //dexNo = req.query.dexNo;
+    res.contentType('json');
+    //console.log(pokemonName);
+
+    Pokemon.findOne({_id:req.query.dexNo, eng_name: req.query.pokemonName}, function(err, pkmn){
+        console.log("Found Pokemon: "+ pkmn);
+        if (pkmn) {
+            console.log('Correct answer!');
+            res.send({correct: true});
+        } else {
+            console.log('Incorrect answer!');
+            res.send({correct: false});
+        }
+    });
+    //console.log('Correct answer!');
+    //res.send('Correct answer');
+    //res.send({ some: JSON.stringify({response:'json'}) });
+});
+
+/*app.get('/?dexNo', function(req, res) {
+    res.render('index');
+});*/
 
 /*app.get('/', function(request, response, next) {
   response.redirect(__dirname + '/index.html');
