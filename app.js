@@ -37,6 +37,8 @@ app.configure(function() {
 
 app.get('/', function(req, res) {
     console.log("rendering index");
+    //res.contentType('json');
+    //counter = req.query.dexNo;
     res.render('index');
 });
 

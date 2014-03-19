@@ -48,7 +48,20 @@ $(function(){
                         $('#result').html("Correct answer! :D");
                         $('#result').css("color", "#00FF00");
                         var counter = Number($('#counter').text());
-                        $('#counter').text(String(counter + 1));
+                        counter++;
+                        $('#counter').text(String(counter));
+                        $('#pkmn-name').val("");
+                        randomPokemon();
+                        /*$.ajax({
+                            url: "/",
+                            dataType: "json",
+                            type: "GET",
+                            data: {
+                                counter: counter
+                                //pokemonName: $('input[name="pkmn-name"]').val(),
+                                //dexNo: $("#whos-this-pokemon").attr('dexno')
+                            }
+                        }).done(randomPokemon());*/
                     } else {
                         $('#result').html("Incorrect answer! :(");
                         $('#result').css("color", "#000000");
