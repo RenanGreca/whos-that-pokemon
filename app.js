@@ -48,7 +48,11 @@ app.get('/fillDex', function(req, res) {
         //console.log(pokedex[i]);
         pkmn = pokedex[i].toString().split("|");
         console.log(pkmn);
-        addPokemon(pkmn);
+        Pokemon.findOne({_id:pkmn[0]}, function(err, result){
+            if (!result) {
+                addPokemon(pkmn);
+            }
+        });
     }
     res.render('index');
 });
@@ -127,4 +131,4 @@ app.get('/submit', function(req, res) {
   response.redirect(__dirname + '/index.html');
 });*/
 
-app.listen(3000);//, '0.0.0.0');
+app.listen(8080);//, '0.0.0.0');
