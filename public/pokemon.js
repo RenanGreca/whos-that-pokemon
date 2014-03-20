@@ -1,5 +1,5 @@
 function randomPokemon() {
-    var dexno = Math.floor((Math.random()*657)+1);
+    var dexno = Math.floor((Math.random()*718)+1);
     $("#whos-this-pokemon").attr(
         'src',
         "/pokemon/"+dexno+".png"

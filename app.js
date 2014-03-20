@@ -36,7 +36,7 @@ app.configure(function() {
 });
 
 app.get('/', function(req, res) {
-    console.log("rendering index");
+    //console.log("rendering index");
     //res.contentType('json');
     //counter = req.query.dexNo;
     res.render('index');
@@ -109,12 +109,12 @@ app.get('/submit', function(req, res) {
     //console.log(pokemonName);
 
     Pokemon.findOne({_id:req.query.dexNo, eng_name: req.query.pokemonName}, function(err, pkmn){
-        console.log("Found Pokemon: "+ pkmn);
+        //console.log("Found Pokemon: "+ pkmn);
         if (pkmn) {
-            console.log('Correct answer!');
+            //console.log('Correct answer!');
             res.send({correct: true});
         } else {
-            console.log('Incorrect answer!');
+            //console.log('Incorrect answer!');
             res.send({correct: false});
         }
     });
