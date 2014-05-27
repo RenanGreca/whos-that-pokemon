@@ -63,6 +63,7 @@ $(function(){
                             }
                         }).done(randomPokemon());*/
                     } else {
+                        // TODO add different random messages to show the answer was wrong
                         $('#result').html("Incorrect answer! :(");
                         $('#result').css("color", "#000000");
                     }
