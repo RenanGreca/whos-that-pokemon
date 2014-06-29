@@ -1,14 +1,15 @@
 {
-    "name": "party-hopper",
-    "description": "The party-finding network",
+    "name": "whos-that-pokemon",
+    "description": "Gotta Name Em All!",
     "version": "0.0.1",
-    "private": true,
+    "private": false,
     "dependencies": {
-        "express": "3.4.2",
-        "ejs": "0.8.4",
-        "passport": "0.1.17",
-        "passport-facebook": "1.0.1",
-        "fbgraph": "0.2.8",
-        "mongoose": "3.8.0"
-    }
+        "express": "> 3.4.2",
+        "ejs": "> 0.8.4",
+        "mongoose": "> 3.8.0"
+    },
+    "scripts": {
+        "start": "node server.js"
+    },
+    "main": "server.js"
 }
