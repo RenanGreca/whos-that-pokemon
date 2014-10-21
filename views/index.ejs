@@ -21,6 +21,15 @@
       type="image/png" 
       href="img/pokeball.png">
 
+    <!-- Facebook API mumbo-jumbo -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=129289847158218&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 </head>
 <body>
 <center>
@@ -42,12 +51,17 @@
           0
         </div>
         <div class="share">
-            <a id="custom-tweet-button" target="blank" href="http://twitter.com/intent/tweet">Tweet your score!</a><br />
-            <!--<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://whosthatpokemon.net" data-text="I scored 0 in Who's That Pokémon!" data-count="none" data-hashtags="WhosThatPokemon">Tweet</a>
+            <!-- FB Share Button -->
+            <div class="fb-share-button" data-href="http://whosthatpokemon.net" layout="button_count"></div>
+            <!-- Tweet Button -->
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://whosthatpokemon.net" data-text="Test your Pokémon knowledge by setting your high score!" data-hashtags="WhosThatPokemon">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            <!--<a id="custom-tweet-button" target="blank" href="http://twitter.com/intent/tweet">Tweet your score!</a><br />
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://whosthatpokemon.net" data-text="I scored 100 in Who's That Pokémon!" data-count="none" data-hashtags="WhosThatPokemon">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>-->
         </div>
         <div class="buttons">
-            <input type="button" value="Silhouette mode" onClick="silhouetteMode=!silhouetteMode; self.value='off'" />
+            <input type="button" value="Silhouette mode" onClick="silhouetteTrigger(self);" />
         </div>
         <div class="footer">
             <a href="https://github.com/RenanGreca/whos-that-pokemon">Created by Renan Greca in 2014</a><br />

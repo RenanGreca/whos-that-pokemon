@@ -1,7 +1,7 @@
 {
     "name": "whos-that-pokemon",
     "description": "Gotta Name Em All!",
-    "version": "0.0.1",
+    "version": "0.3.1",
     "private": false,
     "dependencies": {
         "express": "> 3.4.2",

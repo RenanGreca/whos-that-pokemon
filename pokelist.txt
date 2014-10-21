@@ -1,9 +1,13 @@
+000|Missingno|???
 001|Bulbasaur|Grass|Poison
 002|Ivysaur|Grass|Poison
 003|Venusaur|Grass|Poison
+003M|Mega Venusaur|Grass|Poison
 004|Charmander|Fire
 005|Charmeleon|Fire
 006|Charizard|Fire|Flying
+006X|Mega Charizard X|Fire|Dragon
+006Y|Mega Charizard Y|Fire|Flying
 007|Squirtle|Water
 008|Wartortle|Water
 009|Blastoise|Water
@@ -16,6 +20,7 @@
 016|Pidgey|Normal|Flying
 017|Pidgeotto|Normal|Flying
 018|Pidgeot|Normal|Flying
+018|Bird Jesus|Normal|Flying
 019|Rattata|Normal
 020|Raticate|Normal
 021|Spearow|Normal|Flying
@@ -27,9 +32,15 @@
 027|Sandshrew|Ground
 028|Sandslash|Ground
 029|NidoranF|Poison
+029|Nidoran Female|Poison
+029|Female Nidoran|Poison
+029|Nidoran F|Poison
 030|Nidorina|Poison
 031|Nidoqueen|Poison|Ground
 032|NidoranM|Poison
+029|Nidoran Male|Poison
+029|Male Nidoran|Poison
+029|Nidoran M|Poison
 033|Nidorino|Poison
 034|Nidoking|Poison|Ground
 035|Clefairy|Fairy
@@ -47,6 +58,7 @@
 047|Parasect|Bug|Grass
 048|Venonat|Bug|Poison
 049|Venomoth|Bug|Poison
+049|ATV|Bug|Poison
 050|Diglett|Ground
 051|Dugtrio|Ground
 052|Meowth|Normal
@@ -113,13 +125,14 @@
 113|Chansey|Normal
 114|Tangela|Grass
 115|Kangaskhan|Normal
+115|Khahnghashkhahn|Normal
 116|Horsea|Water
 117|Seadra|Water
 118|Goldeen|Water
 119|Seaking|Water
 120|Staryu|Water
 121|Starmie|Water|Psychic
-122|Mr. Mime|Psychic|Fairy
+122|Mr Mime|Psychic|Fairy
 123|Scyther|Bug|Flying
 124|Jynx|Ice|Psychic
 125|Electabuzz|Electric
@@ -134,9 +147,14 @@
 134|Vaporeon|Water
 135|Jolteon|Electric
 136|Flareon|Fire
+136|False Prophet|Fire
 137|Porygon|Normal
 138|Omanyte|Rock|Water
+138|Baby Helix|Rock|Water
+138|Helix|Rock|Water
 139|Omastar|Rock|Water
+139|Lord Helix|Rock|Water
+139|Helix|Rock|Water
 140|Kabuto|Rock|Water
 141|Kabutops|Rock|Water
 142|Aerodactyl|Rock|Flying
