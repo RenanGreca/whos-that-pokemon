@@ -6,6 +6,21 @@ $( document ).ready(function() {
     href = $('#custom-tweet-button').attr('href');
 });
 
+window.addEventListener('resize', () => {
+    // For the rare legacy browsers that don't support it
+    if (!window.visualViewport) {
+        return
+    }
+
+    const h = window.visualViewport.height
+
+    $('.pkmn-image').css({'height': h*0.50, 'width': h*0.50})
+
+    console.log(window.visualViewport.height)
+
+    // console.log($('.pkmn-image').css())
+})
+
 // Gets a random pokémon from the database
 function randomPokemon() {
     do {

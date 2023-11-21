@@ -14,8 +14,13 @@ body {
 }
 
 .pkmn-image {
-    width: 300px;
-    height: 300px;
+    width: 60vw;
+    height: 60vw;
+    max-width: 300px;
+    max-height: 300px;
+    min-width: 150px;
+    min-height: 150px;
+    /* height: 250px; */
     background-color: #FFFFFF;
     text-align: center;
     margin: 1em 0;
@@ -29,8 +34,8 @@ body {
 }
 
 .pokemon {
-    max-width: 290px;
-    max-height: 290px;
+    max-width: 80%;
+    max-height: 80%;
     margin: 5px;
     vertical-align: middle;
 }
