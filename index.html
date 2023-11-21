@@ -4,47 +4,59 @@
     <title>Who's That Pokémon?</title>
 
     <!-- JQuery -->
-    <script src="public/jquery-1.11.0.min.js"></script>
+    <!--<link rel="stylesheet" href="/jquery-ui.css">
+    <script src="/jquery-ui.js"></script>-->
+    <!--<script src="/jquery-2.1.1.min.js"></script>-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="public/jquery.jrumble.1.3.min.js"></script>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="public/bootstrap-3.1.1-dist/css/bootstrap.min.css">
     <script src="public/bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="public/style.css">
+    <script src="./pokedex.js" type="application/javascript"></script>
     <script src="public/pokemon.js" type="application/javascript"></script>
+
+    <link rel="icon" 
+      type="image/png" 
+      href="public/img/pokeball.png">
 
 </head>
 <body>
 <center>
     <div class="upper-half">
         <p>Do you have what it takes to be the very best? Type the Pokémon's name to get points!</p>
-
-        <h1>Who's That Pokémon?</h1>
+        <span class="Title">Who's That Pokémon?</span>
 
         <div class="pkmn-image">
             <span class="helper"></span><img class="pokemon" id="whos-this-pokemon"/>
         </div>
-        <div class="has-success has-feedback">
-            <input type="text" class="pkmn-name" id="pkmn-name" autofocus/>
+        <div id="name-box">
+            <input type="text" name="pkmn-name" class="pkmn-name" id="pkmn-name" autofocus autocomplete="off" />
         </div>
+        <div id="result"></div>
     </div>
-    <div class="footer">
-        <a href="https://github.com/RenanGreca/whos-that-pokemon">Created by Renan Greca in 2014</a><br />
-        Pokémon and all related content is owned by The Pokémon Company, Nintendo and GameFreak<br />
-        Artwork by Ken Sugimori<br />
+    <div class="overlap">
+        <img src="public/img/sball.png">
+        <div id="counter">
+          0
+        </div>
+        <div class="share">
+            <!-- Tweet Button -->
+            <!-- <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://whosthatpokemon.net" data-text="Test your Pokémon knowledge by setting your high score!" data-hashtags="WhosThatPokemon">Tweet</a> -->
+<!-- <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script> -->
+        </div>
+        <div class="buttons">
+            <input type="button" value="Silhouette mode" onClick="silhouetteTrigger(self);" />
+        </div>
+        <div class="footer">
+            <a href="https://github.com/RenanGreca/whos-that-pokemon">Created by Renan Greca in 2014</a><br />
+            Pokémon and all related content is owned by The Pokémon Company, Nintendo and GameFreak<br />
+            Artwork by Ken Sugimori<br />
+        </div>
     </div>
 </center>
 </body>
-<!-- Google Analytics -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-48758010-1', 'whosthatpokemon.net');
-  ga('send', 'pageview');
-
-</script>
-<!-- End Google Analytics -->
 </html>

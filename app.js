@@ -1,11 +1,10 @@
-var express = require('express');
-var mongoose = require('mongoose');
-var path = require('path');
-var http = require('http');
-var fs  = require("fs");
+import express from 'express';
+import mongoose, { Mongoose } from 'mongoose';
+import path from 'path';
+import fs from 'fs';
 
 mongoose.connect('mongodb://localhost/whos-that-pokemon');
-var pokemon_schema = mongoose.Schema({
+const pokemon_schema = mongoose.Schema({
     _id: Number,
     eng_name: String,
     alt_name: String,
@@ -14,9 +13,9 @@ var pokemon_schema = mongoose.Schema({
     gen: String
 });
 
-var Pokemon = mongoose.model('Pokemon', pokemon_schema);
+const Pokemon = mongoose.model('Pokemon', pokemon_schema);
 
-var app = express();
+const app = express();
 app.configure(function() {
     // Use ejs as the view engine
     app.set('view engine', 'ejs');
@@ -42,56 +41,55 @@ app.get('/', function(req, res) {
     res.render('index');
 });
 
-app.get('/fillDex', function(req, res) {
-    var pokedex = fs.readFileSync("pokemon.txt").toString().split("\n");
-    for(i in pokedex) {
-        //console.log(pokedex[i]);
-        pkmn = pokedex[i].toString().split("|");
-        console.log(pkmn);
-        Pokemon.findOne({_id:pkmn[0]}, function(err, result){
-            if (!result) {
-                addPokemon(pkmn);
-            }
-        });
-    }
-    res.render('index');
-});
+// app.get('/fillDex', async function(req, res) {
+//     var pokedex = fs.readFileSync("pokemon.txt").toString().split("\n");
+//     for(i in pokedex) {
+//         //console.log(pokedex[i]);
+//         pkmn = pokedex[i].toString().split("|");
+//         console.log(pkmn);
+//         const result = await Pokemon.findOne({_id:pkmn[0]});
+//         if (!result) {
+//             addPokemon(pkmn);
+//         }
+//     }
+//     res.render('index');
+// });
 
-function addPokemon(pkmn) {
-    var gen;
-    var dexno = pkmn[0];
-    var name = pkmn[1];
-    var typea = pkmn[2];
-    var typeb;
-    if (pkmn[3])
-        typeb = pkmn[3];
-    else
-        typeb = "";
-    if (dexno <= 151) {
-        gen = "I";
-    } else if (dexno <= 251) {
-        gen = "II";
-    } else if (dexno <= 386) {
-        gen = "III";
-    } else if (dexno <= 493) {
-        gen = "IV";
-    } else if (dexno <= 649) {
-        gen = "V";
-    } else {
-        gen = "VI";
-    }
+// function addPokemon(pkmn) {
+//     var gen;
+//     var dexno = pkmn[0];
+//     var name = pkmn[1];
+//     var typea = pkmn[2];
+//     var typeb;
+//     if (pkmn[3])
+//         typeb = pkmn[3];
+//     else
+//         typeb = "";
+//     if (dexno <= 151) {
+//         gen = "I";
+//     } else if (dexno <= 251) {
+//         gen = "II";
+//     } else if (dexno <= 386) {
+//         gen = "III";
+//     } else if (dexno <= 493) {
+//         gen = "IV";
+//     } else if (dexno <= 649) {
+//         gen = "V";
+//     } else {
+//         gen = "VI";
+//     }
 
-    var pokemon = new Pokemon ({
-        _id: dexno,
-        eng_name: name,
-        type1: typea,
-        type2: typeb,
-        gen: gen
-    });
+//     var pokemon = new Pokemon ({
+//         _id: dexno,
+//         eng_name: name,
+//         type1: typea,
+//         type2: typeb,
+//         gen: gen
+//     });
 
-    pokemon.save();
-    return pokemon;
-}
+//     pokemon.save();
+//     return pokemon;
+// }
 
 /*var http = require('http'); 
 http.createServer(function (req, res) {
@@ -102,25 +100,24 @@ http.createServer(function (req, res) {
 });*/
 
 // When return is pressed, this is called.
-app.get('/submit', function(req, res) {
+app.get('/submit', async function(req, res) {
     //pokemonName = req.query.pokemonName;
     //dexNo = req.query.dexNo;
     res.contentType('json');
     //console.log(pokemonName);
 
-    Pokemon.findOne({_id:req.query.dexNo}, function(err, pkmn){
-        //console.log("Found Pokemon: "+ pkmn);
-        if (pkmn) {
-            if (pkmn.eng_name.toLowerCase() == req.query.pokemonName.toLowerCase()) {
-                res.send({correct: true});
-            } else {
-                res.send({correct: false});
-            }
-            //console.log('Correct answer!');
+    const pkmn = await Pokemon.findOne({_id:req.query.dexNo});
+    //console.log("Found Pokemon: "+ pkmn);
+    if (pkmn) {
+        if (pkmn.eng_name.toLowerCase() == req.query.pokemonName.toLowerCase()) {
+            res.send({correct: true});
         } else {
-            //console.log('Incorrect answer!');
+            res.send({correct: false});
         }
-    });
+        //console.log('Correct answer!');
+    } else {
+        //console.log('Incorrect answer!');
+    }
     //console.log('Correct answer!');
     //res.send('Correct answer');
     //res.send({ some: JSON.stringify({response:'json'}) });

@@ -1,31 +1,33 @@
-var express = require('express');
-var mongoose = require('mongoose');
-var path = require('path');
-var http = require('http');
+const express = require('express');
+// var mongoose = require('mongoose');
+const path = require('path');
+// var http = require('http');
 var fs  = require("fs");
+const pokedex = require('./pokedex.json');
 var counter = 0;
 
-var options = {
-  user: 'admin',
-  pass: 'Yc9YwUTt_uf-'
-}
+// var options = {
+//   user: 'admin',
+//   pass: 'Yc9YwUTt_uf-'
+// }
 
 // Development database
 //mongoose.connect('mongodb://127.0.0.1/pokemon');
 
 // Production database
-mongoose.connect('mongodb://127.13.13.130/pokemon', options);
+// mongoose.connect('mongodb://127.13.13.130/pokemon', options);
 
-var pokemon_schema = mongoose.Schema({
-    _id: Number,
-    dexno: Number,
-    name: String,
-    type1: String,
-    type2: String,
-    gen: String
-});
+// var pokemon_schema = mongoose.Schema({
+//     _id: Number,
+//     dexno: Number,
+//     name: String,
+//     type1: String,
+//     type2: String,
+//     gen: String
+// });
 
-var Pokemon = mongoose.model('Pokemon', pokemon_schema);
+// var Pokemon = mongoose.model('Pokemon', pokemon_schema);
+
 
 var app = express();
 
@@ -45,17 +47,24 @@ app.get('/', function(req, res) {
 });
 
 // This is only used when re-filling the database
-/*app.get('/fillDex', function(req, res) {
-    var pokedex = fs.readFileSync("pokemon.txt").toString().split("\n");
-    id = 0;
-    for(i in pokedex) {
-        pkmn = pokedex[i].toString().split("|");
-        addPokemon(pkmn, id++);
+app.get('/fillDex', function(req, res) {
+    const listOfPokemon = fs.readFileSync("pokemon.txt").toString().split("\n");
+    const pokedex = [{}]
+    // id = 0;
+    for(const row of listOfPokemon) {
+        const pkmn = row.toString().split("|");
+        const pokemon = addPokemon(pkmn);//, id++);
+
+        // const number = Number(pokemon.dexno).toString()
+        // pokedex[number] = pokemon
+        pokedex.push(pokemon)
     }
+    const stringDex = JSON.stringify(pokedex)
+    fs.writeFileSync("pokedex.json", stringDex)
     res.render('index');
 });
 
-function addPokemon(pkmn, id) {
+function addPokemon(pkmn) {
     var gen;
     var dexno = pkmn[0];
     var name = pkmn[1].toLowerCase();
@@ -79,40 +88,41 @@ function addPokemon(pkmn, id) {
         gen = "VI";
     }
 
-    var pokemon = new Pokemon ({
-        _id: id,
+    var pokemon = {
         dexno: dexno,
         name: name,
         type1: typea,
         type2: typeb,
         gen: gen
-    });
+    };
 
-    pokemon.save(function(err){
-                //save line
-                if (err) {
-                    throw err; 
-                    console.log('pokemon not saved');
-                }
-                console.log('saved pokemon to database');
-                });
+    // pokemon.save(function(err){
+    //             //save line
+    //             if (err) {
+    //                 throw err; 
+    //                 console.log('pokemon not saved');
+    //             }
+    //             console.log('saved pokemon to database');
+    //             });
     return pokemon;
-}*/
+}
 
 // When return is pressed, this is called.
-app.get('/submit', function(req, res) {
+app.get('/submit', async function(req, res) {
     res.contentType('json');
     
-    console.log(req.query.dexNo+" "+req.query.pokemonName);
+    // console.log(req.query.dexNo+" "+req.query.pokemonName);
 
-    Pokemon.findOne({_id:req.query.dexNo, eng_name: req.query.pokemonName.toLowerCase()}, function(err, pkmn){
-        if (pkmn) {
-            counter++;
-            res.send({correct: true, counter: counter});
-        } else {
-            res.send({correct: false, counter: counter});
-        }
-    });
+    // const pkmn = await Pokemon.findOne({_id:req.query.dexNo, eng_name: req.query.pokemonName.toLowerCase()})
+    const index = Number(req.query.dexNo)
+    const name = req.query.pokemonName.toLowerCase()
+    const pkmn = pokedex[index]
+    if (pkmn && pkmn.name == name) {
+        counter++;
+        res.send({correct: true, counter: counter});
+    } else {
+        res.send({correct: false, counter: counter});
+    }
 });
 
 // THIS IS FOR PRODUCTION
